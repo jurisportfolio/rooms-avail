@@ -1,8 +1,9 @@
 import React from 'react';
 import jsonp from 'jsonp';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const RoomOnList = ({ data }) => {
-  console.log('data: ', data);
+const RoomOnList = ({ roomData }) => {
+
   const {
     name,
     roomType,
@@ -13,13 +14,13 @@ const RoomOnList = ({ data }) => {
     doubleBedsCount,
     image
 
-  } = data;
+  } = roomData;
   return (
     <div>
       <img src={image} width='100' alt='room' />
       <h2>{name}</h2>
       <h3>{roomType}</h3>
-      <h4>{maxNbGuests}</h4>
+      <h4>Maksymalna ilość gości {maxNbGuests}</h4>
       <h4>Cena: {totalPrice}</h4>
       <h4>Ilość sypialeń {bedroomsCount}</h4>
       <h4>Łóżka pojedyńcze {singleBedsCount}</h4>
@@ -29,10 +30,19 @@ const RoomOnList = ({ data }) => {
   )
 }
 
-const ListOfRooms = () => {
+const ListOfRooms = ({ roomsData }) => {
+  console.log(roomsData);
   return (
     <ul>
-
+      {roomsData.map(
+        (room) => {
+          return (
+            <li key={room.id}>
+              <RoomOnList roomData={room} />
+            </li>
+          )
+        }
+      )}
     </ul>
   )
 }
@@ -43,27 +53,27 @@ export default class ListContainer extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      data: null,
+      roomsData: null,
       error: null,
       isLoading: false
     };
   }
 
   handleClick() {
-    this.setState({ data: null, isLoading: true });
+    this.setState({ roomsData: null, isLoading: true });
     getListOfRooms(
-      (error, data) => this.setState({ data, error, isLoading: false })
+      (error, roomsData) => this.setState({ roomsData, error, isLoading: false })
     );
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>get data</button>
+        <button onClick={this.handleClick}>get roomsData</button>
         <div>
-          {this.state.isLoading ? <h2>Loading...</h2> : null}
+          {this.state.isLoading ? <CircularProgress /> : null}
           {this.state.error ? <h2>{this.state.error}</h2> : null}
-          {this.state.data ? <RoomOnList data={this.state.data[3]} /> : null}
+          {this.state.roomsData ? <ListOfRooms roomsData={this.state.roomsData} /> : null}
         </div>
       </div>
     )
