@@ -1,20 +1,24 @@
 import React from 'react';
 import RoomOnListComponent from './RoomOnListComponent';
+import {
+  List,
+  ListItem
+} from '@material-ui/core';
 
 const RoomsListComponent = ({ roomsData }) => {
 
   return (
-    <ul>
+    <List>
       {roomsData.map(
         (room) => {
           return (
-            <li key={room.id}>
+            <ListItem key={room.id}>
               <RoomOnListComponent roomData={room} />
-            </li>
+            </ListItem>
           )
         }
       )}
-    </ul>
+    </List>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { format } from 'date-fns';
+
 import { DatePicker } from '@material-ui/pickers';
 
 const FormDatePickersContainer = (props) => {
@@ -29,8 +29,6 @@ const FormDatePickersContainer = (props) => {
           autoOk
           label="Date To"
           initialFocusedDate={dateFrom}
-          // defaultValue={dateFrom}
-          // minDate={dateFrom}
           disablePast
           value={dateTo}
           onChange={date => handleChangeDateTo(date)}

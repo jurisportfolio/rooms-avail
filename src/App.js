@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+  Paper
+} from '@material-ui/core';
 
 import './App.css';
 import FormComponent from './components/FormComponent';
@@ -50,23 +58,30 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <FormComponent
-        dateFrom={dateFrom}
-        dateTo={dateTo}
-        visitors={visitors}
-        handleChangeVisitors={handleChangeVisitors}
-        handleChangeDateFrom={handleChangeDateFrom}
-        handleChangeDateTo={handleChangeDateTo} />
-
-      <button onClick={handleSearch}>Search</button>
-
+    <Paper className="App">
+      <Card>
+        <CardContent>
+          <Typography component="h4">
+            Please choose dates and guest's information to see prices:
+          </Typography>
+          <FormComponent
+            dateFrom={dateFrom}
+            dateTo={dateTo}
+            visitors={visitors}
+            handleChangeVisitors={handleChangeVisitors}
+            handleChangeDateFrom={handleChangeDateFrom}
+            handleChangeDateTo={handleChangeDateTo} />
+        </CardContent>
+        <CardActions disableSpacing>
+          <Button variant="outlined" onClick={handleSearch}>Search</Button>
+        </CardActions>
+      </Card>
       <ListContainer
         roomsData={roomsData}
         error={error}
         isLoading={isLoading}
       />
-    </div>
+    </Paper>
   );
 }
 

@@ -16,8 +16,8 @@ const FormComponent = (props) => {
   } = props;
 
   return (
-    <MuiPickersUtilsProvider className="form" utils={DateFnsUtils}>
-      <h4 className="form--title">Please choose dates and guest's information to see prices: </h4>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+
       <FormDatePickersContainer
         handleChangeDateFrom={handleChangeDateFrom}
         handleChangeDateTo={handleChangeDateTo}
