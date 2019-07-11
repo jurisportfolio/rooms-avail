@@ -3,7 +3,12 @@ import React from 'react';
 import { DatePicker } from '@material-ui/pickers';
 
 const FormDatePickersContainer = (props) => {
-
+  const {
+    handleChangeDateFrom,
+    handleChangeDateTo,
+    dateFrom,
+    dateTo
+  } = props;
   return (
     <div className="form--date__container">
       <div className="form--date__from">
@@ -11,8 +16,8 @@ const FormDatePickersContainer = (props) => {
           autoOk
           label="Date From"
           disablePast
-          value={props.dateFrom}
-          onChange={date => props.handleChangeDateFrom(date)}
+          value={dateFrom}
+          onChange={date => handleChangeDateFrom(date)}
           margin="normal"
           variant="inline"
           inputVariant="outlined"
@@ -23,8 +28,8 @@ const FormDatePickersContainer = (props) => {
           autoOk
           label="Date To"
           disablePast
-          value={props.dateTo}
-          onChange={date => props.handleChangeDateTo(date)}
+          value={dateTo}
+          onChange={date => handleChangeDateTo(date)}
           margin="normal"
           variant="inline"
           inputVariant="outlined"

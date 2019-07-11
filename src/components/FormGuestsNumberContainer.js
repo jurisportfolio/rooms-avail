@@ -3,15 +3,19 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 
 const FormGuestsNumberContainer = (props) => {
-
+  const {
+    adultsNumber,
+    childrenNumber,
+    handleChange
+  } = props;
   return (
     <div className="form--guests__container">
       <div className="form--guests form--guests__adults">
         <TextField
           id="adultsNumber"
           label="Adults"
-          value={props.adultsNumber}
-          onChange={props.handleChange('adultsNumber')}
+          value={adultsNumber}
+          onChange={handleChange('adultsNumber')}
           type="number"
           className="input__number"
           InputLabelProps={{
@@ -28,8 +32,8 @@ const FormGuestsNumberContainer = (props) => {
         <TextField
           id="childrenNumber"
           label="Children"
-          value={props.childrenNumber}
-          onChange={props.handleChange('childrenNumber')}
+          value={childrenNumber}
+          onChange={handleChange('childrenNumber')}
           type="number"
           className="input__number"
           InputLabelProps={{
