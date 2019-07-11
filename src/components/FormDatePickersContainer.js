@@ -9,8 +9,7 @@ const FormDatePickersContainer = (props) => {
     dateFrom,
     dateTo
   } = props;
-  console.log('dateFrom: ', format(dateFrom, 'yyyy-MM-dd'));
-  console.log('dateTo: ', format(dateTo, 'yyyy-MM-dd'));
+
   return (
     <div className="form--date__container">
       <div className="form--date__from">

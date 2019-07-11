@@ -16,8 +16,6 @@ function getUrlFromFetchParams(fetchParams) {
 
 export default function fetchRoomsData(fetchParams, callback) {
   const url = getUrlFromFetchParams(fetchParams);
-
-  console.log('url: ', url);
   jsonp(
     url,
     { timeout: 6000 },
