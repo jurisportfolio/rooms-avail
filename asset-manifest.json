@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rooms-avail/static/css/main.ba7c25f3.chunk.css",
+    "main.js": "/rooms-avail/static/js/main.f496c11f.chunk.js",
+    "main.js.map": "/rooms-avail/static/js/main.f496c11f.chunk.js.map",
+    "runtime~main.js": "/rooms-avail/static/js/runtime~main.3e233093.js",
+    "runtime~main.js.map": "/rooms-avail/static/js/runtime~main.3e233093.js.map",
+    "static/js/2.aac57b9e.chunk.js": "/rooms-avail/static/js/2.aac57b9e.chunk.js",
+    "static/js/2.aac57b9e.chunk.js.map": "/rooms-avail/static/js/2.aac57b9e.chunk.js.map",
+    "index.html": "/rooms-avail/index.html",
+    "precache-manifest.1200a8e0fc3a5ea3212d7921e449bd55.js": "/rooms-avail/precache-manifest.1200a8e0fc3a5ea3212d7921e449bd55.js",
+    "service-worker.js": "/rooms-avail/service-worker.js",
+    "static/css/main.ba7c25f3.chunk.css.map": "/rooms-avail/static/css/main.ba7c25f3.chunk.css.map"
+  }
+}
