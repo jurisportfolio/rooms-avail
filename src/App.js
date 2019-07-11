@@ -12,28 +12,23 @@ const App = () => {
     adultsNumber: 0,
     childrenNumber: 0
   });
-
-  const handleChangeVisitors = name => event => {
-    setVisitors({ ...visitors, [name]: event.target.value });
-  };
-
   const [dateFrom, setDateFrom] = useState(new Date());
-
   const [dateTo, setDateTo] = useState(new Date());
-
-  const handleChangeDateFrom = date => {
-    setDateFrom(date);
-  }
-
-  const handleChangeDateTo = date => {
-    setDateTo(date);
-  }
-
   const [roomsData, setRoomsData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-
+  const handleChangeVisitors = name => event => {
+    setVisitors({ ...visitors, [name]: event.target.value });
+  };
+  const handleChangeDateFrom = date => {
+    setDateFrom(date);
+    if (date > dateTo) { setDateTo(date) };
+  }
+  const handleChangeDateTo = date => {
+    setDateTo(date);
+    if (date < dateFrom) { setDateFrom(date) };
+  }
   const handleClick = () => {
     setRoomsData(null);
     setIsLoading(true);
