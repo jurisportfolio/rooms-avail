@@ -6,6 +6,27 @@ import ListContainer from './components/ListContainer';
 
 const App = () => {
 
+  const [visitors, setVisitors] = useState({
+    adultsNumber: 0,
+    childrenNumber: 0
+  });
+
+  const handleChangeVisitors = name => event => {
+    setVisitors({ ...visitors, [name]: event.target.value });
+  };
+
+  const [dateFrom, setDateFrom] = useState(new Date());
+
+  const [dateTo, setDateTo] = useState(new Date());
+
+  const handleChangeDateFrom = date => {
+    setDateFrom(date);
+  }
+
+  const handleChangeDateTo = date => {
+    setDateTo(date);
+  }
+
   const [roomsData, setRoomsData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,9 +46,20 @@ const App = () => {
 
   return (
     <div className="App">
-      <FormComponent />
+      <FormComponent
+        dateFrom={dateFrom}
+        dateTo={dateTo}
+        visitors={visitors}
+        handleChangeVisitors={handleChangeVisitors}
+        handleChangeDateFrom={handleChangeDateFrom}
+        handleChangeDateTo={handleChangeDateTo} />
+
       <button onClick={handleClick}>get rooms</button>
-      <ListContainer roomsData={roomsData} error={error} isLoading={isLoading} />
+
+      <ListContainer
+        roomsData={roomsData}
+        error={error}
+        isLoading={isLoading} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import RoomOnListComponent from './RoomOnListComponent';
 
 const RoomsListComponent = ({ roomsData }) => {
-  console.log(roomsData);
+
   return (
     <ul>
       {roomsData.map(
