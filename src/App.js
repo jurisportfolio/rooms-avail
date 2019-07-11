@@ -1,40 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import jsonp from 'jsonp';
 import './App.css';
 import FormComponent from './components/FormComponent';
 import ListContainer from './components/ListContainer';
 
+const App = () => {
+
+  const [roomsData, setRoomsData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      roomsData: null,
-      error: null,
-      isLoading: false
-    };
-  }
-
-  handleClick() {
-    this.setState({ roomsData: null, isLoading: true });
+  const handleClick = () => {
+    setRoomsData(null);
+    setIsLoading(true);
     getListOfRooms(
-      (error, roomsData) => this.setState({ roomsData, error, isLoading: false })
+      (error, roomsData) => {
+        setRoomsData(roomsData);
+        setError(error);
+        setIsLoading(false);
+      }
     );
-  }
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <FormComponent />
-        <button onClick={this.handleClick}>get rooms</button>
-        <ListContainer props={this.state} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <FormComponent />
+      <button onClick={handleClick}>get rooms</button>
+      <ListContainer roomsData={roomsData} error={error} isLoading={isLoading} />
+    </div>
+  );
 }
+
+// class App extends React.Component {
+
+//   state = {
+//     roomsData: null,
+//     error: null,
+//     isLoading: false
+//   };
+
+//   handleClick = () => {
+//     this.setState({ roomsData: null, isLoading: true });
+//     getListOfRooms(
+//       (error, roomsData) => this.setState({ roomsData, error, isLoading: false })
+//     );
+//   };
+
+//   getDate = () => {
+
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <FormComponent />
+//         <button onClick={this.handleClick}>get rooms</button>
+//         <ListContainer props={this.state} />
+//       </div>
+//     );
+//   };
+// };
 
 export default App;
 
