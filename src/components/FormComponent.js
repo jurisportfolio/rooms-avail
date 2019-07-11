@@ -43,10 +43,10 @@ const FormComponent = () => {
         adultsNumber={visitors.adultsNumber}
         childrenNumber={visitors.childrenNumber}
       />
-      <h1>{visitors.adultsNumber}</h1>
+      {/* <h1>{visitors.adultsNumber}</h1>
       <h1>{visitors.childrenNumber}</h1>
       <h1>{dateFrom.toString()}</h1>
-      <h1>{dateTo.toString()}</h1>
+      <h1>{dateTo.toString()}</h1> */}
 
 
 
