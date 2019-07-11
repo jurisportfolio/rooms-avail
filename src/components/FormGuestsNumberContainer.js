@@ -22,7 +22,7 @@ const FormGuestsNumberContainer = (props) => {
             shrink: true,
           }}
           inputProps={{
-            min: 0
+            min: 1
           }}
           margin="normal"
           variant="outlined"

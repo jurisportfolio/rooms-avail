@@ -8,7 +8,7 @@ const ListContainer = (props) => {
     <div>
       <div>
         {isLoading ? <CircularProgress /> : null}
-        {error ? <h2>{error}</h2> : null}
+        {error ? <h2>{error.toString()}</h2> : null}
         {roomsData ? <RoomsListComponent roomsData={roomsData} /> : null}
       </div>
     </div>

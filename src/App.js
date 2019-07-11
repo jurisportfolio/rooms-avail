@@ -9,7 +9,7 @@ import fetchRoomsData from './utilities/fetchFunctions';
 const App = () => {
 
   const [visitors, setVisitors] = useState({
-    adultsNumber: 0,
+    adultsNumber: 1,
     childrenNumber: 0
   });
   const [dateFrom, setDateFrom] = useState(new Date());
@@ -20,16 +20,19 @@ const App = () => {
 
   const handleChangeVisitors = name => event => {
     setVisitors({ ...visitors, [name]: event.target.value });
+    handleSearch();
   };
   const handleChangeDateFrom = date => {
     setDateFrom(date);
     if (date > dateTo) { setDateTo(date) };
+    handleSearch();
   }
   const handleChangeDateTo = date => {
     setDateTo(date);
     if (date < dateFrom) { setDateFrom(date) };
+    handleSearch();
   }
-  const handleClick = () => {
+  const handleSearch = () => {
     setRoomsData(null);
     setIsLoading(true);
     fetchRoomsData(
@@ -56,7 +59,7 @@ const App = () => {
         handleChangeDateFrom={handleChangeDateFrom}
         handleChangeDateTo={handleChangeDateTo} />
 
-      <button onClick={handleClick}>get rooms</button>
+      <button onClick={handleSearch}>Search</button>
 
       <ListContainer
         roomsData={roomsData}

@@ -20,6 +20,7 @@ export default function fetchRoomsData(fetchParams, callback) {
   console.log('url: ', url);
   jsonp(
     url,
+    { timeout: 6000 },
     (error, data) => callback(error, data)
   );
 }
